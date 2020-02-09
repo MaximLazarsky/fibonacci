@@ -15,21 +15,18 @@ function getRecFib(n, a = 0, b = 1) {
     return n - 2 > 1 ? getRecFib(n - 1, b, b + a) : a + b
 }
 
+let callbackFunction = (index, res) => console.log(`The ${index} element of Fibonacci sequence is ${res}`)
+
 function getFibElement(index, callback) {
-    res = index < 100 ? getRecFib(index) : getCycleFib(index)
-    return callbackFunction()
+    let res = index < 100 ? getRecFib(index) : getCycleFib(index)
+    callback(index, res)
 }
 
-function callbackFunction() {
-    console.log(`The ${index} element of Fibonacci sequence is ${res}`)
-}
-
-let res
-let index
 let i = 0
+let myIndex
 
 while (i < 20) {
-    index = Math.ceil(2 + Math.random() * 198)
-    getFibElement(index, callbackFunction())
+    myIndex = Math.ceil(2 + Math.random() * 198)
+    getFibElement(myIndex, callbackFunction)
     i++
 }
