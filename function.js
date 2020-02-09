@@ -20,6 +20,7 @@ let callbackFunction = (index, res) => console.log(`The ${index} element of Fibo
 function getFibElement(index, callback) {
     let res = index < 100 ? getRecFib(index) : getCycleFib(index)
     callback(index, res)
+    return res
 }
 
 let i = 0
